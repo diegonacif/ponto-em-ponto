@@ -8,7 +8,7 @@ export const Login = () => {
         <input type="text" placeholder="Email" />
         <input type="text" placeholder="Senha" />
         <span id="forgot-password">Esqueci a senha</span>
-        <span id="non-registered">Não sou cadastrado</span>
+        <span id="non-registered">Cadastrar minha empresa</span>
         <button>Acessar</button>
       </div>
     </div>
