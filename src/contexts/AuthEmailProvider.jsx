@@ -25,6 +25,10 @@ export const AuthEmailProvider = ({ children }) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
+  console.log({
+    "registerEmail": registerEmail, 
+  })
+
   const [userState, loading, error] = useAuthState(auth);
 
   onAuthStateChanged(auth, (currentUser) => {
