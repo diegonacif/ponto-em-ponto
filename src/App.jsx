@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Clock } from './components/Clock/Clock';
+import { RegisterTable } from './components/RegisterTable/RegisterTable';
 import { AuthEmailContext } from './contexts/AuthEmailProvider';
 import './css/App.css';
 
@@ -22,6 +23,7 @@ function App() {
       <h1>Ponto em ponto</h1>
       <Clock />
       <button onClick={() => logoutUser()}>Logout</button>
+      <RegisterTable />
     </div>
   )
 }

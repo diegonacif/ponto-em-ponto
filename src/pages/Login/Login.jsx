@@ -44,7 +44,7 @@ export const Login = () => {
       <h3>Faça login para continuar</h3>
       <div className="login-wrapper">
         <input type="text" placeholder="Email" {...register("email")} />
-        <input type="text" placeholder="Senha" {...register("password")} />
+        <input type="password" placeholder="Senha" {...register("password")} />
         <span id="forgot-password">Esqueci a senha</span>
         <Link to="/register" id="non-registered">Cadastrar minha empresa</Link>
         <button onClick={() => loginUser()}>Acessar</button>

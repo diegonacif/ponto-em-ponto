@@ -1,0 +1,14 @@
+.register-table-container {
+  width: 30rem;
+  background-color: whitesmoke;
+
+  table {
+    width: 100%;
+    tr, thead {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: center;
+      width: 100%;
+    }
+  }
+}

@@ -16,7 +16,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   max-width: 40rem;
@@ -38,10 +37,6 @@
   margin-top: 0.5rem;
 }
 .login-container .login-wrapper input::-moz-placeholder {
-  color: rgb(70, 69, 69);
-  font-size: 1.25rem;
-}
-.login-container .login-wrapper input:-ms-input-placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
 }
@@ -83,7 +78,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   max-width: 40rem;
@@ -105,10 +99,6 @@
   margin-top: 0.5rem;
 }
 .register-container .register-wrapper input::-moz-placeholder {
-  color: rgb(70, 69, 69);
-  font-size: 1.25rem;
-}
-.register-container .register-wrapper input:-ms-input-placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
 }
@@ -136,4 +126,18 @@
 .register-container .register-wrapper span#non-registered {
   margin-top: 1rem;
   font-size: 0.875rem;
+}
+
+.register-table-container {
+  width: 30rem;
+  background-color: whitesmoke;
+}
+.register-table-container table {
+  width: 100%;
+}
+.register-table-container table tr, .register-table-container table thead {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  width: 100%;
 }/*# sourceMappingURL=App.css.map */
