@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { Clock } from './components/Clock/Clock';
 import { AuthEmailContext } from './contexts/AuthEmailProvider';
 import './css/App.css';
 
@@ -19,6 +20,7 @@ function App() {
   return (
     <div className="app-container">
       <h1>Ponto em ponto</h1>
+      <Clock />
       <button onClick={() => logoutUser()}>Logout</button>
     </div>
   )

@@ -25,10 +25,10 @@ export const AuthEmailProvider = ({ children }) => {
   const [isSignedIn, setIsSignedIn] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  console.log({
-    "registerEmail": loginEmail, 
-    "registerPassword": loginPassword, 
-  })
+  // console.log({
+  //   "registerEmail": loginEmail, 
+  //   "registerPassword": loginPassword, 
+  // })
 
   const [userState, loading, error] = useAuthState(auth);
 
