@@ -1,6 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { ClockContext } from "../../contexts/ClockProvider";
 
 export const Clock = () => {
+
+  // const { 
+  //   dateTime
+  // } = useContext(ClockContext);
+
   const date = new Date();
 
   const [dateTime, setDateTime] = useState({
