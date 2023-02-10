@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
-export const Clock = () => {
+export const ClockContext = createContext({});
+
+export const ClockProvider = () => {
   const date = new Date();
 
   const [dateTime, setDateTime] = useState({
@@ -21,13 +23,9 @@ export const Clock = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const dateTimeFormated = `${dateTime.hours}:${dateTime.minutes}:${dateTime.seconds}`;
-
   return (
-    <div className="clock-container">
-      {/* {dateTime.hours}:{dateTime.minutes}:{dateTime.seconds}; */}
-      <span>{dateTimeFormated}</span>
-      {/* <span>{dateTimeFormated}</span> */}
-    </div>
+    <ClockContext.Provider value={{ 
+      dateTime
+    }}></ClockContext.Provider>
   )
 }
