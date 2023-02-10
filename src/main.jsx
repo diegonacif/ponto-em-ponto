@@ -9,15 +9,19 @@ import App from './App'
 import { AuthEmailProvider } from './contexts/AuthEmailProvider';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
+import { PrivateRoutes } from './privateRoutes';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthEmailProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route element={<PrivateRoutes />}>
+            <Route path="/home" element={<App />} />
+          </Route>
+
         </Routes>
       </BrowserRouter>
     </AuthEmailProvider>

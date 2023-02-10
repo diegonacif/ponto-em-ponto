@@ -26,7 +26,8 @@ export const AuthEmailProvider = ({ children }) => {
   const [errorMsg, setErrorMsg] = useState("");
 
   console.log({
-    "registerEmail": registerEmail, 
+    "registerEmail": loginEmail, 
+    "registerPassword": loginPassword, 
   })
 
   const [userState, loading, error] = useAuthState(auth);
