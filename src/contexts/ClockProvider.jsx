@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const ClockContext = createContext({});
 
-export const ClockProvider = () => {
+export const ClockProvider = ({ children }) => {
   const date = new Date();
 
   const [dateTime, setDateTime] = useState({
@@ -26,6 +26,8 @@ export const ClockProvider = () => {
   return (
     <ClockContext.Provider value={{ 
       dateTime
-    }}></ClockContext.Provider>
+    }}>
+      {children}
+    </ClockContext.Provider>
   )
 }
