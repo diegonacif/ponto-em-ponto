@@ -26,8 +26,7 @@ export const AuthEmailProvider = ({ children }) => {
   const [errorMsg, setErrorMsg] = useState("");
 
   // console.log({
-  //   "registerEmail": loginEmail, 
-  //   "registerPassword": loginPassword, 
+  //   "userId": user?.uid, 
   // })
 
   const [userState, loading, error] = useAuthState(auth);
@@ -49,12 +48,15 @@ export const AuthEmailProvider = ({ children }) => {
         auth, 
         registerEmail, 
         registerPassword
-      );
+      ).then(() => {
+        console.log("create firebase user")
+      });
       console.log(user);
     } catch (error) {
       console.log(error.message);
     }
   }
+
   const loginUser = async () => {
     try {
       const user = await signInWithEmailAndPassword(
@@ -92,7 +94,8 @@ export const AuthEmailProvider = ({ children }) => {
       logoutUser,
       isSignedIn,
       errorMsg,
-      isLoading
+      isLoading,
+      user
     }}>
       {children}
     </AuthEmailContext.Provider>
