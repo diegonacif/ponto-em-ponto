@@ -14,37 +14,33 @@ export const RegisterTable = () => {
   const [users, setUsers] = useState({});
   const [firestoreLoading, setFirestoreLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
-  
-  const [isExistent, setIsExistent] = useState(false);
-  // console.log(isExistent)
+  const [entranceType, setEntranceType] = useState("Entrada Manhã");
 
+  const [tableData, setTableData] = useState([]);
+  
   const { dateTime } = useContext(ClockContext);
   const { user } = useContext(AuthEmailContext);
 
   const IdsArray = firestoreLoading ? [] : users?.map((user) => user.id)
-  // console.log(IdsArray)
+
   const date = new Date();
-  const currentDay = new Date().getDate() < 10 ? "0" + String(new Date().getDate()) : String(new Date().getDate())
-  const currentMonth = new Date().getMonth() + 1 < 10 ? "0" + String(new Date().getMonth() + 1) : String(new Date().getMonth() + 1)
-  const currentFullDate = currentDay + currentMonth + date.getFullYear()
-
-  // console.log(currentFullDate);
+  // const currentDay = new Date().getDate() < 10 ? "0" + String(new Date().getDate()) : String(new Date().getDate())
+  // const currentMonth = new Date().getMonth() + 1 < 10 ? "0" + String(new Date().getMonth() + 1) : String(new Date().getMonth() + 1)
+  // const currentFullDate = currentDay + currentMonth + date.getFullYear()
 
 
-  // /users/5eVc9Y6Dq5gc1JepGxS7wWaSXei1
-
-  // Create user entrance on db
+  // Create user entrance on db if does not already exist
   useEffect(() => {
     const getUserEntrance = () => {
       if(firestoreLoading) {
         return;
       } else if(IdsArray.includes(user.uid)) {
-        console.log("existe uid");
+        return;
+        // console.log("existe uid");
       } else {
         const docRef = doc(db, "users", `${user.uid}`);
         console.log("não existe uid");
         return setDoc(docRef, {}).then(() => console.log("criado"))
-        
       }
     };
     getUserEntrance();
@@ -53,13 +49,13 @@ export const RegisterTable = () => {
   // Register user point
   async function registerHour() {
 
-    // const docRef = doc(db, "users", `${user.uid}`, "12022023", `${date.getTime()}`);
     const path = `users/${user.uid}`;
-    const docRef = doc(db, `${path}/${currentFullDate}/${date.getTime()}`);
+    const docRef = doc(db, `${path}/registers/${date.getTime()}`);
+    // const docRef = doc(db, `${path}/${currentFullDate}/${date.getTime()}`);
 
     return await setDoc(docRef, {
       date: date.toLocaleDateString(),
-      type: "Entrada manhã",
+      type: entranceType,
       hour: `${dateTime.hours}:${dateTime.minutes}:${dateTime.seconds}`,
     })
     .then(
@@ -68,19 +64,35 @@ export const RegisterTable = () => {
     )
   }
 
+  // const currentId = IdsArray?.indexOf(user.uid)
+  const currentCollection = collection(db, "users", `${user.uid}`, "registers")
+  const [userCollections, setUserCollections] = useState([]);
+
   // Get Data from current user
   useEffect(() => {
-    async function getCurrentData() {
-      const currentId = await IdsArray?.indexOf(user.uid)
-      const tableRow = [
-        users[currentId]?.date,
-        users[currentId]?.type,
-        users[currentId]?.hour
-      ]
-      setTableData(tableRow)
+    const getCurrentData = async () => {
+      const data = await getDocs(currentCollection);
+      setUserCollections(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
     }
     getCurrentData();
-  }, [firestoreLoading])
+  }, [firestoreLoading, refresh])
+
+  // Get data from each entrance of current user
+  useEffect(() => {
+    setTableData([]);
+    const createTable = async () => {
+      userCollections.map((data) => {
+        const tableRow = [
+          data.date,
+          data.type,
+          data.hour
+        ]
+        setTableData(prevList => [...prevList, ...tableRow])
+      }
+      )
+    }
+    createTable();
+  }, [userCollections, refresh])
 
   // Users Data
   useEffect(() => {
@@ -100,12 +112,6 @@ export const RegisterTable = () => {
   }, [loading])
 
 
-  const [tableData, setTableData] = useState([]);
-
-  function addRow() {
-    setTableData([...tableData, ...tableRow])
-  }
-
   return (
     <div className="register-table-container">
       <table>
@@ -123,6 +129,12 @@ export const RegisterTable = () => {
         </tr>
       </table>
       <button onClick={() => registerHour()}>Add</button>
+      <select onChange={(e) => setEntranceType(e.target.value)}>
+        <option value="Entrada Manhã">Entrada Manhã</option>
+        <option value="Saída Manhã">Saída Manhã</option>
+        <option value="Entrada Tarde">Entrada Tarde</option>
+        <option value="Saída Tarde">Saída Tarde</option>
+      </select>
     </div>
   )
 }
