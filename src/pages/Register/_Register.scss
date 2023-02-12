@@ -22,8 +22,8 @@
     .register-wrapper {
       @include flex(column);
       align-items: center;
-      width: fit-content;
-      max-width: 40rem;
+      width: 100%;
+      max-width: 30rem;
       height: 100%;
       // padding: 1rem;
       margin-top: 2.5rem;
@@ -36,6 +36,7 @@
         @include flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
 
         &:not(:first-child) {
           margin-top: 1.5rem;
@@ -47,7 +48,8 @@
         }
 
         input {
-          width: 20rem;
+          width: 100%;
+          max-width: 60rem;
           height: 2.75rem;
           border-radius: 16px;
           border: 0;
@@ -56,6 +58,7 @@
           font-size: 1.275rem;
           font-weight: 500;
           padding-left: 3.25rem;
+          padding-right: 1rem;
     
           &::placeholder {
             color: rgb(70, 69, 69);
@@ -73,6 +76,7 @@
         border: 2px solid $blue-200;
         border-radius: 16px;
         font-size: 1.25rem;
+        font-weight: 500;
         background-color: transparent;
         color: white;
         margin: 2rem auto 0;

@@ -44,10 +44,8 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  max-width: 40rem;
+  width: 100%;
+  max-width: 30rem;
   height: 100%;
   margin-top: 2.5rem;
   background-color: transparent;
@@ -58,6 +56,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .login-container section .login-wrapper .input-wrapper:nth-of-type(2) {
   margin-top: 1.5rem;
@@ -67,15 +66,16 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   left: 0.6rem;
 }
 .login-container section .login-wrapper .input-wrapper input {
-  width: 20rem;
+  width: 100%;
   height: 2.75rem;
   border-radius: 16px;
   border: 0;
   padding: 0 0.5rem;
   background-color: #2184e7;
   font-size: 1.275rem;
-  font-weight: 500;
+  font-weight: 600;
   padding-left: 3.25rem;
+  padding-right: 1rem;
 }
 .login-container section .login-wrapper .input-wrapper input::-moz-placeholder {
   color: rgb(70, 69, 69);
@@ -100,6 +100,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   border: 2px solid #0466C8;
   border-radius: 16px;
   font-size: 1.25rem;
+  font-weight: 500;
   background-color: transparent;
   color: white;
   margin: 2rem auto 0;
@@ -147,10 +148,8 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  max-width: 40rem;
+  width: 100%;
+  max-width: 30rem;
   height: 100%;
   margin-top: 2.5rem;
   background-color: transparent;
@@ -161,6 +160,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 .register-container section .register-wrapper .input-wrapper:not(:first-child) {
   margin-top: 1.5rem;
@@ -170,7 +170,8 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   left: 0.6rem;
 }
 .register-container section .register-wrapper .input-wrapper input {
-  width: 20rem;
+  width: 100%;
+  max-width: 60rem;
   height: 2.75rem;
   border-radius: 16px;
   border: 0;
@@ -179,6 +180,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   font-size: 1.275rem;
   font-weight: 500;
   padding-left: 3.25rem;
+  padding-right: 1rem;
 }
 .register-container section .register-wrapper .input-wrapper input::-moz-placeholder {
   color: rgb(70, 69, 69);
@@ -203,6 +205,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   border: 2px solid #0466C8;
   border-radius: 16px;
   font-size: 1.25rem;
+  font-weight: 500;
   background-color: transparent;
   color: white;
   margin: 2rem auto 0;
@@ -222,17 +225,80 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
 }
 
 .register-table-container {
-  width: 30rem;
-  background-color: whitesmoke;
+  width: 100%;
+  max-width: 30rem;
+  margin-top: 3rem;
+}
+.register-table-container .select-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+}
+.register-table-container .select-wrapper button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.425rem;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.register-table-container .select-wrapper button.active {
+  background-color: #2184e7;
+}
+.register-table-container .select-wrapper button.active svg {
+  color: white;
+}
+.register-table-container .select-wrapper button.inactive {
+  background-color: #33415C;
+}
+.register-table-container .select-wrapper button.inactive svg {
+  color: #979DAC;
+}
+.register-table-container #button-add {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 2.5rem;
+  border: 2px solid #0466C8;
+  border-radius: 16px;
+  margin: 2.5rem auto 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  background-color: transparent;
+  color: #dadada;
+  cursor: pointer;
 }
 .register-table-container table {
   width: 100%;
+  margin-top: 3rem;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  padding: 0 0 1rem;
+  color: #dadada;
 }
-.register-table-container table tr, .register-table-container table thead {
+.register-table-container table tr {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
+  row-gap: 0.625rem;
   width: 100%;
+}
+.register-table-container table tr:first-child {
+  align-items: center;
+  margin-bottom: 1rem;
+  background-color: rgba(0, 0, 0, 0.233);
+  height: 2.5rem;
 }
 
 .clock-container .neon-text {
@@ -242,4 +308,37 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   font-weight: 600;
   color: #fff;
   text-shadow: 0 0 7px #94a3ce, 0 0 10px #94a3ce, 0 0 21px #94a3ce, 0 0 42px #0466C8, 0 0 82px #0466C8, 0 0 92px #0466C8, 0 0 102px #0466C8, 0 0 151px #0466C8;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: rgb(44, 44, 44);
+  padding: 3rem 0.75rem;
+}
+.app-container #table-clock {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 21rem;
+  height: 6rem;
+  border: 3px solid rgb(128, 187, 255);
+  border-radius: 12px;
+  box-shadow: 0 0 0.2rem #fff, 0 0 0.2rem #fff, 0 0 2rem #0353A4, 0 0 0.8rem #0353A4, 0 0 2.8rem #0353A4, inset 0 0 1.3rem #0353A4;
+}
+.app-container #table-clock span {
+  width: 16rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.75rem;
+  color: white;
+  font-family: "Graduate", cursive;
 }/*# sourceMappingURL=App.css.map */

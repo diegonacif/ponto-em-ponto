@@ -2,7 +2,9 @@ import { useContext } from 'react';
 import { Clock } from './components/Clock/Clock';
 import { RegisterTable } from './components/RegisterTable/RegisterTable';
 import { AuthEmailContext } from './contexts/AuthEmailProvider';
-import { ClockProvider } from './contexts/ClockProvider';
+import { ClockContext, ClockProvider } from './contexts/ClockProvider';
+import { PauseCircle, PlayCircle, SignIn, SignOut } from 'phosphor-react';
+
 import './css/App.css';
 
 function App() {
@@ -19,11 +21,17 @@ function App() {
     errorMsg
   } = useContext(AuthEmailContext);
 
+  const { 
+    dateTimeFormated
+  } = useContext(ClockContext);
+
   return (
     <ClockProvider>
       <div className="app-container">
-        <h1>Ponto em ponto</h1>
-        <Clock />
+        {/* <h1>Ponto em ponto</h1> */}
+        <div id="table-clock">
+          <span>{dateTimeFormated}</span>
+        </div>
         <button onClick={() => logoutUser()}>Logout</button>
         <RegisterTable />
       </div>

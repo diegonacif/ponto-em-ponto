@@ -6,6 +6,7 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import { ClockContext } from '../../contexts/ClockProvider';
 import { AuthEmailContext } from "../../contexts/AuthEmailProvider";
 
+import { PauseCircle, PlayCircle, SignIn, SignOut } from 'phosphor-react';
 import '../../css/App.css';
 
 export const RegisterTable = () => {
@@ -14,20 +15,41 @@ export const RegisterTable = () => {
   const [users, setUsers] = useState({});
   const [firestoreLoading, setFirestoreLoading] = useState(true);
   const [refresh, setRefresh] = useState(false);
-  const [entranceType, setEntranceType] = useState("Entrada Manhã");
+  const [entranceType, setEntranceType] = useState("Entrada");
 
   const [tableData, setTableData] = useState([]);
   
-  const { dateTime } = useContext(ClockContext);
+  // const { dateTime, dateTimeFormated } = useContext(ClockContext);
   const { user } = useContext(AuthEmailContext);
 
-  const IdsArray = firestoreLoading ? [] : users?.map((user) => user.id)
-
+  // Current Hour
   const date = new Date();
-  // const currentDay = new Date().getDate() < 10 ? "0" + String(new Date().getDate()) : String(new Date().getDate())
-  // const currentMonth = new Date().getMonth() + 1 < 10 ? "0" + String(new Date().getMonth() + 1) : String(new Date().getMonth() + 1)
-  // const currentFullDate = currentDay + currentMonth + date.getFullYear()
 
+  const [dateTime, setDateTime] = useState({
+    hours: date.getHours(),
+    minutes: date.getMinutes(),
+    seconds: date.getSeconds()
+  });
+
+  const dateTimeFormated = `
+    ${dateTime.hours < 10 ? '0'+dateTime.hours : dateTime.hours} :
+    ${dateTime.minutes < 10 ? '0'+dateTime.minutes : dateTime.minutes} :
+    ${dateTime.seconds < 10 ? '0'+dateTime.seconds : dateTime.seconds}
+  `;
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const date = new Date();      
+      setDateTime({
+        hours: date?.getHours(),
+        minutes: date?.getMinutes(),
+        seconds: date?.getSeconds()
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const IdsArray = firestoreLoading ? [] : users?.map((user) => user.id)
 
   // Create user entrance on db if does not already exist
   useEffect(() => {
@@ -56,7 +78,8 @@ export const RegisterTable = () => {
     return await setDoc(docRef, {
       date: date.toLocaleDateString(),
       type: entranceType,
-      hour: `${dateTime.hours}:${dateTime.minutes}:${dateTime.seconds}`,
+      hour: dateTimeFormated,
+      // hour: `${dateTime.hours}:${dateTime.minutes}:${dateTime.seconds}`,
     })
     .then(
       setRefresh((current) => !current),
@@ -114,6 +137,34 @@ export const RegisterTable = () => {
 
   return (
     <div className="register-table-container">
+      <div className="select-wrapper">
+        <button 
+          className={entranceType === "Entrada" ? "active" : "inactive"}
+          onClick={() => setEntranceType("Entrada")}>
+          <SignIn size={40} weight="duotone" />
+        </button>
+        <button 
+          className={entranceType === "Pausa" ? "active" : "inactive"}
+          onClick={() => setEntranceType("Pausa")}>
+          <PauseCircle size={40} weight="duotone" />
+        </button>
+        <button 
+          className={entranceType === "Retorno" ? "active" : "inactive"}
+          onClick={() => setEntranceType("Retorno")}>
+          <PlayCircle size={40} weight="duotone" />
+        </button>
+        <button 
+          className={entranceType === "Saída" ? "active" : "inactive"}
+          onClick={() => setEntranceType("Saída")}>
+          <SignOut size={40} weight="duotone" />
+        </button>
+      </div>
+      <button 
+        onClick={() => registerHour()}
+        id="button-add"
+      >
+        Registrar
+      </button>
       <table>
         <tr>
           <th>Data</th>
@@ -127,14 +178,14 @@ export const RegisterTable = () => {
           )
         }
         </tr>
+
       </table>
-      <button onClick={() => registerHour()}>Add</button>
-      <select onChange={(e) => setEntranceType(e.target.value)}>
+      {/* <select onChange={(e) => setEntranceType(e.target.value)}>
         <option value="Entrada Manhã">Entrada Manhã</option>
         <option value="Saída Manhã">Saída Manhã</option>
         <option value="Entrada Tarde">Entrada Tarde</option>
         <option value="Saída Tarde">Saída Tarde</option>
-      </select>
+      </select> */}
     </div>
   )
 }

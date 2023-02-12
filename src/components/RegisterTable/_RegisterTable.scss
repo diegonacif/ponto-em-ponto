@@ -1,14 +1,81 @@
 .register-table-container {
-  width: 30rem;
-  background-color: whitesmoke;
+  width: 100%;
+  max-width: 30rem;
+  // background-color: whitesmoke;
+  margin-top: 3rem;
+
+  .select-wrapper {
+    @include flex;
+    justify-content: space-evenly;
+    height: fit-content;
+    width: 100%;
+    // margin-top: 3rem;
+
+    button {
+      @include flex;
+      align-items: center;
+      justify-content: center;
+      width: fit-content;
+      padding: 0.425rem;
+      border: 0;
+      border-radius: 8px;
+      cursor: pointer;
+
+      &.active {
+        background-color: $blue-100;
+
+        svg {
+          color: white;
+        }
+      }
+
+      &.inactive {
+        background-color: $gray-600;
+
+        svg {
+          color: $gray-100;
+        }
+      }
+    }
+  }
+
+  #button-add {
+    @include flex;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 2.5rem;
+    border: 2px solid $blue-200;
+    border-radius: 16px;
+    margin: 2.5rem auto 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    background-color: transparent;
+    color: #dadada;
+    cursor: pointer;
+  }
 
   table {
     width: 100%;
-    tr, thead {
+    margin-top: 3rem;
+    background-color: $black-900;
+    border-radius: 8px;
+    padding: 0 0 1rem;
+    color: #dadada;
+
+    tr {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       justify-items: center;
+      row-gap: 0.625rem;
       width: 100%;
+
+      &:first-child {
+        align-items: center;
+        margin-bottom: 1rem;
+        background-color: rgba(0, 0, 0, 0.233);
+        height: 2.5rem;
+      }
     }
   }
 }
