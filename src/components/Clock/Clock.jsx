@@ -4,14 +4,13 @@ import { ClockContext } from "../../contexts/ClockProvider";
 export const Clock = () => {
 
   const { 
-    dateTime
+    dateTime,
+    dateTimeFormated
   } = useContext(ClockContext);
-
-  const dateTimeFormated = `${dateTime.hours}:${dateTime.minutes}:${dateTime.seconds}`;
 
   return (
     <div className="clock-container">
-      <span>{dateTimeFormated}</span>
+      <span className="neon-text">{dateTimeFormated}</span>
     </div>
   )
 }

@@ -1,7 +1,9 @@
 import { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import { Clock } from '../../components/Clock/Clock';
 import { AuthEmailContext } from '../../contexts/AuthEmailProvider';
+import { UserCircle, LockKeyOpen, XCircle } from 'phosphor-react';
 
 import '../../css/App.css';
 
@@ -41,14 +43,22 @@ export const Login = () => {
 
   return (
     <div className="login-container">
-      <h3>Faça login para continuar</h3>
-      <div className="login-wrapper">
-        <input type="text" placeholder="Email" {...register("email")} />
-        <input type="password" placeholder="Senha" {...register("password")} />
-        <span id="forgot-password">Esqueci a senha</span>
-        <Link to="/register" id="non-registered">Cadastrar minha empresa</Link>
-        <button onClick={() => loginUser()}>Acessar</button>
-      </div>
+      <section>
+        <Clock />
+        <div className="login-wrapper">
+          <div className="input-wrapper">
+            <UserCircle size={36} color="#154854" weight="duotone" />
+            <input type="text" placeholder="Email" {...register("email")} />
+          </div>
+          <div className="input-wrapper">
+            <LockKeyOpen size={36} color="#154854" weight="duotone" />
+            <input type="password" placeholder="Senha" {...register("password")} />
+          </div>
+          <span id="forgot-password">Esqueci a senha</span>
+          <Link to="/register" id="non-registered">Cadastrar-se agora</Link>
+          <button onClick={() => loginUser()}>Acessar</button>
+        </div>
+      </section>
     </div>
   )
 }

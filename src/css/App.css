@@ -2,6 +2,17 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:focus-visible, a:focus-within, a:focus, a:active, a:target {
+  border: 0;
+  outline: 0;
+  background-color: transparent;
 }
 
 .login-container {
@@ -10,9 +21,26 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(44, 44, 44);
+  padding: 0 2rem;
 }
-.login-container .login-wrapper {
+.login-container section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 48rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5rem 1.5rem;
+  background-color: #1f1f1f;
+  border-radius: 16px;
+  border: 2px solid #0466C8;
+  outline: 20px solid #1f1f1f;
+}
+.login-container section .login-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,40 +49,55 @@
   width: fit-content;
   max-width: 40rem;
   height: 100%;
-  margin-top: 2rem;
-  background-color: rgb(34, 49, 48);
+  margin-top: 2.5rem;
+  background-color: transparent;
 }
-.login-container .login-wrapper input {
+.login-container section .login-wrapper .input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.login-container section .login-wrapper .input-wrapper:nth-of-type(2) {
+  margin-top: 1.5rem;
+}
+.login-container section .login-wrapper .input-wrapper svg {
+  position: absolute;
+  left: 0.6rem;
+}
+.login-container section .login-wrapper .input-wrapper input {
   width: 20rem;
   height: 2.75rem;
   border-radius: 16px;
   border: 0;
   padding: 0 0.5rem;
-  background-color: rgb(37, 180, 185);
-  font-size: 1.5rem;
+  background-color: #2184e7;
+  font-size: 1.275rem;
+  font-weight: 500;
   padding-left: 3.25rem;
 }
-.login-container .login-wrapper input:nth-of-type(2) {
-  margin-top: 0.5rem;
-}
-.login-container .login-wrapper input::-moz-placeholder {
+.login-container section .login-wrapper .input-wrapper input::-moz-placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
+  font-weight: 600;
 }
-.login-container .login-wrapper input:-ms-input-placeholder {
+.login-container section .login-wrapper .input-wrapper input:-ms-input-placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
+  font-weight: 600;
 }
-.login-container .login-wrapper input::placeholder {
+.login-container section .login-wrapper .input-wrapper input::placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
+  font-weight: 600;
 }
-.login-container .login-wrapper button {
+.login-container section .login-wrapper button {
   justify-content: center;
   align-items: center;
   width: 10rem;
   height: 2.5rem;
-  border: 2px solid rgb(37, 180, 185);
+  border: 2px solid #0466C8;
   border-radius: 16px;
   font-size: 1.25rem;
   background-color: transparent;
@@ -62,13 +105,17 @@
   margin: 2rem auto 0;
   cursor: pointer;
 }
-.login-container .login-wrapper span#forgot-password {
-  margin-top: 0.5rem;
+.login-container section .login-wrapper #forgot-password {
+  margin-top: 1.5rem;
   font-size: 0.875rem;
+  font-weight: 500;
+  color: #fafafa;
 }
-.login-container .login-wrapper span#non-registered {
+.login-container section .login-wrapper #non-registered {
   margin-top: 1rem;
   font-size: 0.875rem;
+  font-weight: 500;
+  color: #fafafa;
 }
 
 .register-container {
@@ -77,9 +124,26 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: rgb(224, 224, 224);
+  background-color: rgb(44, 44, 44);
+  padding: 0 2rem;
 }
-.register-container .register-wrapper {
+.register-container section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 48rem;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 5rem 1.5rem;
+  background-color: #1f1f1f;
+  border-radius: 16px;
+  border: 2px solid #0466C8;
+  outline: 20px solid #1f1f1f;
+}
+.register-container section .register-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,40 +152,55 @@
   width: fit-content;
   max-width: 40rem;
   height: 100%;
-  margin-top: 2rem;
-  background-color: rgb(34, 49, 48);
+  margin-top: 2.5rem;
+  background-color: transparent;
 }
-.register-container .register-wrapper input {
+.register-container section .register-wrapper .input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.register-container section .register-wrapper .input-wrapper:not(:first-child) {
+  margin-top: 1.5rem;
+}
+.register-container section .register-wrapper .input-wrapper svg {
+  position: absolute;
+  left: 0.6rem;
+}
+.register-container section .register-wrapper .input-wrapper input {
   width: 20rem;
   height: 2.75rem;
   border-radius: 16px;
   border: 0;
   padding: 0 0.5rem;
-  background-color: rgb(37, 180, 185);
-  font-size: 1.5rem;
+  background-color: #2184e7;
+  font-size: 1.275rem;
+  font-weight: 500;
   padding-left: 3.25rem;
 }
-.register-container .register-wrapper input:not(:first-child) {
-  margin-top: 0.5rem;
-}
-.register-container .register-wrapper input::-moz-placeholder {
+.register-container section .register-wrapper .input-wrapper input::-moz-placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
+  font-weight: 600;
 }
-.register-container .register-wrapper input:-ms-input-placeholder {
+.register-container section .register-wrapper .input-wrapper input:-ms-input-placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
+  font-weight: 600;
 }
-.register-container .register-wrapper input::placeholder {
+.register-container section .register-wrapper .input-wrapper input::placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
+  font-weight: 600;
 }
-.register-container .register-wrapper button {
+.register-container section .register-wrapper button {
   justify-content: center;
   align-items: center;
   width: 10rem;
   height: 2.5rem;
-  border: 2px solid rgb(37, 180, 185);
+  border: 2px solid #0466C8;
   border-radius: 16px;
   font-size: 1.25rem;
   background-color: transparent;
@@ -129,13 +208,17 @@
   margin: 2rem auto 0;
   cursor: pointer;
 }
-.register-container .register-wrapper span#forgot-password {
-  margin-top: 0.5rem;
+.register-container section .register-wrapper #forgot-password {
+  margin-top: 1.5rem;
   font-size: 0.875rem;
+  font-weight: 500;
+  color: #fafafa;
 }
-.register-container .register-wrapper span#non-registered {
+.register-container section .register-wrapper #non-registered {
   margin-top: 1rem;
   font-size: 0.875rem;
+  font-weight: 500;
+  color: #fafafa;
 }
 
 .register-table-container {
@@ -150,4 +233,13 @@
   grid-template-columns: 1fr 1fr 1fr;
   justify-items: center;
   width: 100%;
+}
+
+.clock-container .neon-text {
+  color: #979DAC;
+  font-family: "Graduate", cursive;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 7px #94a3ce, 0 0 10px #94a3ce, 0 0 21px #94a3ce, 0 0 42px #0466C8, 0 0 82px #0466C8, 0 0 92px #0466C8, 0 0 102px #0466C8, 0 0 151px #0466C8;
 }/*# sourceMappingURL=App.css.map */

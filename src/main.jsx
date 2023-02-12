@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import App from './App'
 import { AuthEmailProvider } from './contexts/AuthEmailProvider';
+import { ClockProvider } from './contexts/ClockProvider';
 import { Login } from './pages/Login/Login';
 import { Register } from './pages/Register/Register';
 import { PrivateRoutes } from './privateRoutes';
@@ -14,6 +15,7 @@ import { PrivateRoutes } from './privateRoutes';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthEmailProvider>
+      <ClockProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login />} />
@@ -23,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             </Route>
           </Routes>
         </BrowserRouter>
+      </ClockProvider>
     </AuthEmailProvider>
   </React.StrictMode>,
 )

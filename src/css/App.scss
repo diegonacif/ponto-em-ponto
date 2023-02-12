@@ -1,7 +1,35 @@
+$font-primary: 'Raleway', sans-serif;
+$font-clock: 'Graduate', cursive;
+
+// Color palette
+$black-900: #1f1f1f;
+$blue-800: #001845;
+$blue-600: #002855;
+$blue-500: #023E7D;
+$blue-300: #0353A4;
+$blue-200: #0466C8;
+$blue-100: #2184e7;
+$gray-600: #33415C;
+$gray-400: #5C677D;
+$gray-200: #7D8597;
+$gray-100: #979DAC;
+
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: $font-primary;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:focus-visible, &:focus-within, &:focus, &:active, &:target {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+  }
 }
 
 @mixin flex($direction: row) {
@@ -12,3 +40,4 @@
 @import '../pages/Login/Login';
 @import '../pages/Register/Register';
 @import '../components/RegisterTable/RegisterTable';
+@import '../components/Clock/Clock';

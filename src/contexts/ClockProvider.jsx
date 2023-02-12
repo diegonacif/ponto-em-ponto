@@ -11,6 +11,12 @@ export const ClockProvider = ({ children }) => {
     seconds: date.getSeconds()
   });
 
+  const dateTimeFormated = `
+    ${dateTime.hours < 10 ? '0'+dateTime.hours : dateTime.hours} :
+    ${dateTime.minutes < 10 ? '0'+dateTime.minutes : dateTime.minutes} :
+    ${dateTime.seconds < 10 ? '0'+dateTime.seconds : dateTime.seconds}
+  `;
+
   useEffect(() => {
     const timer = setInterval(() => {
       const date = new Date();      
@@ -25,7 +31,8 @@ export const ClockProvider = ({ children }) => {
 
   return (
     <ClockContext.Provider value={{ 
-      dateTime
+      dateTime,
+      dateTimeFormated
     }}>
       {children}
     </ClockContext.Provider>
