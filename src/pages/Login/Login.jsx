@@ -100,7 +100,7 @@ export const Login = () => {
             <div className="login-wrapper">
               <span id="reset-title">Insira seu e-mail e clique em enviar</span>
               <div className="input-wrapper">
-                <UserCircle size={36} color="#154854" weight="duotone" />
+                <UserCircle id="input-icon" size={36} color="#154854" weight="duotone" />
                 <input type="text" placeholder="Email" {...register("emailReset")} />
                 
               </div>

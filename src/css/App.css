@@ -33,7 +33,6 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   align-items: center;
   width: 100%;
   max-width: 48rem;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 5rem 1.5rem;
@@ -114,11 +113,6 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   font-size: 1.25rem;
   font-weight: 600;
 }
-.login-container section .login-wrapper .input-wrapper input:-ms-input-placeholder {
-  color: rgb(70, 69, 69);
-  font-size: 1.25rem;
-  font-weight: 600;
-}
 .login-container section .login-wrapper .input-wrapper input::placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
@@ -194,7 +188,6 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   align-items: center;
   width: 100%;
   max-width: 48rem;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   padding: 5rem 1.5rem;
@@ -207,10 +200,8 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   cursor: pointer;
@@ -271,11 +262,6 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   font-size: 1.25rem;
   font-weight: 600;
 }
-.register-container section .register-wrapper .input-wrapper input:-ms-input-placeholder {
-  color: rgb(70, 69, 69);
-  font-size: 1.25rem;
-  font-weight: 600;
-}
 .register-container section .register-wrapper .input-wrapper input::placeholder {
   color: rgb(70, 69, 69);
   font-size: 1.25rem;
@@ -332,7 +318,6 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   width: 100%;
@@ -342,7 +327,6 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 0.425rem;
