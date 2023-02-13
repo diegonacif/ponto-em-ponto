@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Raleway", sans-serif;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -87,9 +88,14 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
 .login-container section .login-wrapper .input-wrapper:nth-of-type(2) {
   margin-top: 1.5rem;
 }
-.login-container section .login-wrapper .input-wrapper svg {
+.login-container section .login-wrapper .input-wrapper #input-icon {
   position: absolute;
   left: 0.6rem;
+}
+.login-container section .login-wrapper .input-wrapper #eye-icon {
+  position: absolute;
+  right: 0.6rem;
+  cursor: pointer;
 }
 .login-container section .login-wrapper .input-wrapper input {
   width: 100%;
@@ -131,7 +137,17 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   color: white;
   margin: 2rem auto 0;
   cursor: pointer;
-  transition: border 0.1s;
+  transition: border 0.3s color 0.3s;
+}
+.login-container section .login-wrapper button:disabled {
+  background-color: transparent;
+  color: #7D8597;
+  border: 2px solid #7D8597;
+  cursor: not-allowed;
+  transition: border 0.3s color 0.3s;
+}
+.login-container section .login-wrapper button:disabled:hover {
+  border: 2px solid #7D8597;
 }
 .login-container section .login-wrapper button:hover {
   border: 2px solid #0353A4;
@@ -228,9 +244,14 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
 .register-container section .register-wrapper .input-wrapper:not(:first-child) {
   margin-top: 1.5rem;
 }
-.register-container section .register-wrapper .input-wrapper svg {
+.register-container section .register-wrapper .input-wrapper #input-icon {
   position: absolute;
   left: 0.6rem;
+}
+.register-container section .register-wrapper .input-wrapper #eye-icon {
+  position: absolute;
+  right: 0.6rem;
+  cursor: pointer;
 }
 .register-container section .register-wrapper .input-wrapper input {
   width: 100%;
@@ -243,7 +264,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   font-size: 1.275rem;
   font-weight: 500;
   padding-left: 3.25rem;
-  padding-right: 1rem;
+  padding-right: 3rem;
 }
 .register-container section .register-wrapper .input-wrapper input::-moz-placeholder {
   color: rgb(70, 69, 69);
@@ -273,6 +294,17 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   color: white;
   margin: 2rem auto 0;
   cursor: pointer;
+  transition: border 0.3s color 0.3s;
+}
+.register-container section .register-wrapper button:disabled {
+  background-color: transparent;
+  color: #7D8597;
+  border: 2px solid #7D8597;
+  cursor: not-allowed;
+  transition: border 0.3s color 0.3s;
+}
+.register-container section .register-wrapper button:disabled:hover {
+  border: 2px solid #7D8597;
 }
 .register-container section .register-wrapper button:hover {
   border: 2px solid #0353A4;

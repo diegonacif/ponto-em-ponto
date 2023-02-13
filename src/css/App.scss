@@ -20,6 +20,7 @@ $gray-100: #979DAC;
   margin: 0;
   box-sizing: border-box;
   font-family: $font-primary;
+  -webkit-tap-highlight-color: transparent; // remove color highlight on tap
 }
 
 a {

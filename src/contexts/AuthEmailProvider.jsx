@@ -70,6 +70,13 @@ export const AuthEmailProvider = ({ children }) => {
 
     } catch (error) {
       console.log(error.message);
+      if(error.message === "Firebase: Error (auth/invalid-email).") {
+        alert("O email não está registrado.")
+      } else if(error.message === "Firebase: Error (auth/wrong-password).") {
+        alert("O senha não confere.")
+      } else {
+        alert("Erro desconhecido.")
+      }
     }
   }
   const logoutUser = async () => {

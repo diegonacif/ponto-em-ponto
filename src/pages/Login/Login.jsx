@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { Clock } from '../../components/Clock/Clock';
 import { AuthEmailContext } from '../../contexts/AuthEmailProvider';
-import { UserCircle, LockKeyOpen, XCircle } from 'phosphor-react';
+import { UserCircle, LockKeyOpen, XCircle, EyeSlash, Eye } from 'phosphor-react';
 
 import '../../css/App.css';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
@@ -68,6 +68,27 @@ export const Login = () => {
     setValue("password", "");
   }
 
+  // Is button active
+  const [isButtonActive, setIsButtonActive] = useState(false);
+  
+  useEffect(() => {
+    if(isForgotPassword && watch("emailReset") === "" ||
+      isForgotPassword && watch("emailReset") === undefined) {
+      return setIsButtonActive(false);
+    } else if (!isForgotPassword && watch("email") === "" ||
+      !isForgotPassword && watch("email") === undefined) {
+      return setIsButtonActive(false);
+    } else if (!isForgotPassword && watch("password") === "" ||
+      !isForgotPassword && watch("password") === undefined) {
+      return setIsButtonActive(false);
+    } else {
+      return setIsButtonActive(true);
+    }
+  }, [watch()]);
+
+   // Is password visible
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
   return (
     <div className="login-container">
       <section>
@@ -81,22 +102,38 @@ export const Login = () => {
               <div className="input-wrapper">
                 <UserCircle size={36} color="#154854" weight="duotone" />
                 <input type="text" placeholder="Email" {...register("emailReset")} />
+                
               </div>
-              <button onClick={() => handleSendPasswordReset()}>Enviar</button>
+              <button 
+                onClick={() => handleSendPasswordReset()}
+                disabled={isButtonActive ? "" : "disabled"}
+              >
+                Enviar
+              </button>
             </div>
           </> :
           <div className="login-wrapper">
             <div className="input-wrapper">
-              <UserCircle size={36} color="#154854" weight="duotone" />
+              <UserCircle id="input-icon" size={36} color="#154854" weight="duotone" />
               <input type="text" placeholder="Email" {...register("email")} />
             </div>
             <div className="input-wrapper">
-              <LockKeyOpen size={36} color="#154854" weight="duotone" />
-              <input type="password" placeholder="Senha" {...register("password")} />
+              <LockKeyOpen id="input-icon" size={36} color="#154854" weight="duotone" />
+              <input type={isPasswordVisible ? "text" : "password"} placeholder="Senha" {...register("password")} />
+              {
+                !isPasswordVisible ?
+                <EyeSlash onClick={() => setIsPasswordVisible(true)} size={32} id="eye-icon" color="#154854" weight="duotone" /> :
+                <Eye onClick={() => setIsPasswordVisible(false)} size={32} id="eye-icon" color="#154854" weight="duotone" />
+              }
             </div>
             <span id="forgot-password" onClick={() => handleResetState()}>Esqueci a senha</span>
             <Link to="/register" id="non-registered">Cadastrar-se agora</Link>
-            <button onClick={() => loginUser()}>Acessar</button>
+            <button 
+              onClick={() => loginUser()}
+              disabled={isButtonActive ? "" : "disabled"}
+            >
+              Acessar
+            </button>
           </div>
         }
       </section>

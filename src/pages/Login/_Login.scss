@@ -69,9 +69,15 @@
           margin-top: 1.5rem;
         }
 
-        svg {
+        #input-icon {
           position: absolute;
           left: 0.6rem;
+        }
+
+        #eye-icon {
+          position: absolute;
+          right: 0.6rem;
+          cursor: pointer;
         }
 
         input {
@@ -107,7 +113,19 @@
         color: white;
         margin: 2rem auto 0;
         cursor: pointer;
-        transition: border 0.1s;
+        transition: border 0.3s color 0.3s;
+
+        &:disabled {
+          background-color: transparent;
+          color: $gray-200;
+          border: 2px solid $gray-200;
+          cursor: not-allowed;
+          transition: border 0.3s color 0.3s;
+
+          &:hover {
+            border: 2px solid $gray-200;
+          }
+        }
 
         &:hover {
           border: 2px solid $blue-300;
