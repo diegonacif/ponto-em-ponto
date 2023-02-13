@@ -7,6 +7,7 @@
   padding: 0 2rem;
 
   section {
+    position: relative;
     @include flex(column);
     justify-content: center;
     align-items: center;
@@ -18,6 +19,25 @@
     border-radius: 16px;
     border: 2px solid $blue-200;
     outline: 20px solid $black-900; 
+
+    a {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: fit-content;
+      height: fit-content;
+      cursor: pointer;
+      transition: color 0.1s;
+      
+      svg {
+        color: $blue-300;
+        
+        &:hover {
+          color: $blue-200;
+          transition: color 0.3s;
+        }
+      }
+    }
 
     .register-wrapper {
       @include flex(column);
@@ -81,6 +101,11 @@
         color: white;
         margin: 2rem auto 0;
         cursor: pointer;
+
+        &:hover {
+          border: 2px solid $blue-300;
+          transition: border 0.3s;
+        }
       }
   
       #forgot-password {

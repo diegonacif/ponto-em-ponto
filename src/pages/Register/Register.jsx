@@ -1,9 +1,9 @@
 import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Clock } from "../../components/Clock/Clock";
 import { AuthEmailContext } from "../../contexts/AuthEmailProvider";
-import { LockKeyOpen, UserCircle } from "phosphor-react";
+import { LockKeyOpen, UserCircle, XCircle } from "phosphor-react";
 
 import "../../css/App.css";
 
@@ -48,6 +48,9 @@ export const Register = () => {
     <div className="register-container">
       <section>
         <Clock />
+        <Link to="/home">
+          <XCircle size={40} weight="duotone" id="close-button" onClick={() => handleResetState()} />
+        </Link>
         <div className="register-wrapper">
           <div className="input-wrapper">
             <UserCircle size={36} color="#154854" weight="duotone" />

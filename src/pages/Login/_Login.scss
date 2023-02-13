@@ -7,6 +7,7 @@
   padding: 0 2rem;
 
   section {
+    position: relative;
     @include flex(column);
     justify-content: center;
     align-items: center;
@@ -19,6 +20,28 @@
     border: 2px solid $blue-200;
     outline: 20px solid $black-900; 
 
+    #clock-logo {
+      position: absolute;
+      top: -5.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10.5rem;
+    }
+
+    #close-button {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      cursor: pointer;
+      color: $blue-300;
+      transition: color 0.1s;
+
+      &:hover {
+        color: $blue-200;
+        transition: color 0.3s;
+      }
+    }
+
     .login-wrapper {
       @include flex(column);
       align-items: center;
@@ -27,6 +50,13 @@
       height: 100%;
       margin-top: 2.5rem;
       background-color: transparent;
+
+      #reset-title {
+        color: #fafafa;
+        font-weight: 500;
+        font-size: 1.125rem;
+        margin-bottom: 1rem;
+      }
       
       .input-wrapper {
         position: relative;
@@ -77,6 +107,12 @@
         color: white;
         margin: 2rem auto 0;
         cursor: pointer;
+        transition: border 0.1s;
+
+        &:hover {
+          border: 2px solid $blue-300;
+          transition: border 0.3s;
+        }
       }
   
       #forgot-password {
@@ -84,6 +120,13 @@
         font-size: 0.875rem;
         font-weight: 500;
         color: #fafafa;
+        cursor: pointer;
+        transition: color 0.1s;
+
+        &:hover {
+          color: $gray-100;
+          transition: color 0.3s;
+        }
       }
   
       #non-registered {
@@ -91,6 +134,12 @@
         font-size: 0.875rem;
         font-weight: 500;
         color: #fafafa;
+        transition: color 0.1s;
+
+        &:hover {
+          color: $gray-100;
+          transition: color 0.3s;
+        }
       }
     }
   }

@@ -25,6 +25,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   padding: 0 2rem;
 }
 .login-container section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,6 +41,25 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   border: 2px solid #0466C8;
   outline: 20px solid #1f1f1f;
 }
+.login-container section #clock-logo {
+  position: absolute;
+  top: -5.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10.5rem;
+}
+.login-container section #close-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  color: #0353A4;
+  transition: color 0.1s;
+}
+.login-container section #close-button:hover {
+  color: #0466C8;
+  transition: color 0.3s;
+}
 .login-container section .login-wrapper {
   display: flex;
   flex-direction: column;
@@ -49,6 +69,12 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   height: 100%;
   margin-top: 2.5rem;
   background-color: transparent;
+}
+.login-container section .login-wrapper #reset-title {
+  color: #fafafa;
+  font-weight: 500;
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
 }
 .login-container section .login-wrapper .input-wrapper {
   position: relative;
@@ -105,18 +131,34 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   color: white;
   margin: 2rem auto 0;
   cursor: pointer;
+  transition: border 0.1s;
+}
+.login-container section .login-wrapper button:hover {
+  border: 2px solid #0353A4;
+  transition: border 0.3s;
 }
 .login-container section .login-wrapper #forgot-password {
   margin-top: 1.5rem;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fafafa;
+  cursor: pointer;
+  transition: color 0.1s;
+}
+.login-container section .login-wrapper #forgot-password:hover {
+  color: #979DAC;
+  transition: color 0.3s;
 }
 .login-container section .login-wrapper #non-registered {
   margin-top: 1rem;
   font-size: 0.875rem;
   font-weight: 500;
   color: #fafafa;
+  transition: color 0.1s;
+}
+.login-container section .login-wrapper #non-registered:hover {
+  color: #979DAC;
+  transition: color 0.3s;
 }
 
 .register-container {
@@ -129,6 +171,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   padding: 0 2rem;
 }
 .register-container section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,6 +186,26 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   border-radius: 16px;
   border: 2px solid #0466C8;
   outline: 20px solid #1f1f1f;
+}
+.register-container section a {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  cursor: pointer;
+  transition: color 0.1s;
+}
+.register-container section a svg {
+  color: #0353A4;
+}
+.register-container section a svg:hover {
+  color: #0466C8;
+  transition: color 0.3s;
 }
 .register-container section .register-wrapper {
   display: flex;
@@ -210,6 +273,10 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   color: white;
   margin: 2rem auto 0;
   cursor: pointer;
+}
+.register-container section .register-wrapper button:hover {
+  border: 2px solid #0353A4;
+  transition: border 0.3s;
 }
 .register-container section .register-wrapper #forgot-password {
   margin-top: 1.5rem;
@@ -311,6 +378,7 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
 }
 
 .app-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -318,7 +386,19 @@ a:focus-visible, a:focus-within, a:focus, a:active, a:target {
   height: 100%;
   min-height: 100vh;
   background-color: rgb(44, 44, 44);
-  padding: 3rem 0.75rem;
+  padding: 4rem 0.75rem;
+}
+.app-container #logout-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #0353A4;
+  cursor: pointer;
+  transition: color 0.1s;
+}
+.app-container #logout-button:hover {
+  color: #0466C8;
+  transition: color 0.3s;
 }
 .app-container #table-clock {
   position: relative;

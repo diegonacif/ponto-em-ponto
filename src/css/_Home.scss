@@ -1,4 +1,5 @@
 .app-container {
+  position: relative;
   @include flex(column);
   align-items: center;
   // justify-content: center;
@@ -6,7 +7,21 @@
   height: 100%;
   min-height: 100vh;
   background-color: rgb(44, 44, 44);
-  padding: 3rem 0.75rem;
+  padding: 4rem 0.75rem;
+
+  #logout-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: $blue-300;
+    cursor: pointer;
+    transition: color 0.1s;
+
+    &:hover {
+      color: $blue-200;
+      transition: color 0.3s;
+    }
+  }
 
   #table-clock {
     position: relative;
@@ -36,6 +51,4 @@
       font-family: $font-clock;
     }
   }
-
-  
 }
